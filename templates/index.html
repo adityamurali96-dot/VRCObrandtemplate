@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V. Raghavendran &amp; Co - Document Brand Formatter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>V. Raghavendran &amp; Co</h1>
+            <h2 class="subtitle">Document Brand Formatter</h2>
+        </header>
+
+        <main>
+            <p class="description">
+                Upload a Word document (.docx) and receive it back formatted to our brand standards:
+                Crimson Pro typography, consistent heading hierarchy, accent lines, and proper spacing.
+            </p>
+
+            {% if error %}
+            <div class="error-message">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" class="upload-form">
+                <div class="file-input-wrapper">
+                    <label for="file" class="file-label">
+                        <span class="file-label-text">Choose a .docx file</span>
+                        <input type="file" name="file" id="file" accept=".docx" required>
+                    </label>
+                    <span class="file-name" id="fileName">No file chosen</span>
+                </div>
+                <button type="submit" class="submit-btn">Format Document</button>
+            </form>
+
+            <div class="info-section">
+                <h3>What this tool does</h3>
+                <ul>
+                    <li>Sets all text to <strong>Crimson Pro</strong> font</li>
+                    <li>Applies heading sizes: H1 at 32pt, H2 at 24pt, body at 14pt</li>
+                    <li>Adds dark blue accent lines under section headings</li>
+                    <li>Sets 1-inch margins and consistent paragraph spacing</li>
+                    <li>Removes italics (uses bold for emphasis instead)</li>
+                    <li>Centers the title page, left-aligns content pages</li>
+                </ul>
+            </div>
+
+            <div class="font-note">
+                <strong>Note:</strong> The output document uses the Crimson Pro font.
+                For best results, <a href="https://fonts.google.com/specimen/Crimson+Pro" target="_blank" rel="noopener">install Crimson Pro</a>
+                on your computer before opening the formatted document.
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('file').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+            document.getElementById('fileName').textContent = fileName;
+        });
+    </script>
+</body>
+</html>
