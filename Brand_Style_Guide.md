@@ -276,11 +276,26 @@ h1 {
 
 ---
 
+## Firm Details
+
+**V. Raghavendran & Co**  
+Chartered Accountants  
+FRN 007606S | Bengaluru  
+Email: ragha@cavrandco.com
+
+### Partners
+- V. Raghavendran
+- S V Vasudevan
+
+### Professionals
+*(To be updated)*
+
+---
+
 ## Contact
 
 For questions about brand guidelines or style implementation:
-- Contact: Design Team / Marketing Department
-- For technical support with Crimson Pro font installation or CSS implementation, consult IT department
+- Email: ragha@cavrandco.com
 
 ---
 
